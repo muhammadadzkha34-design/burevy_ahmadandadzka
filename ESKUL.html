@@ -1,0 +1,280 @@
+!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ekstrakurikuler SMKN 1 Garut</title>
+    <style>
+        :root {
+            --bg-color: #0c0f12;
+            --card-bg: #423c1e;
+            --inner-card: #423c1e;
+            --text-color: #000000;
+            --accent-color: #ffffff;
+            --input-border: #000000;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* Container Utama */
+        .container {
+            background-color: var(--card-bg);
+            width: 100%;
+            max-width: 400px;
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            box-sizing: border-box;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .logo {
+            width: 50px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .header h2 { margin: 0; font-size: 1.1rem; font-weight: 400; color: #9ca3af; text-transform: uppercase; letter-spacing: 1px; }
+        .header h1 { margin: 5px 0; font-size: 1.6rem; font-weight: 700; color: #fff; }
+
+        /* Grid Ekstrakurikuler */
+        .grid-menu {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .menu-item {
+            background-color: var(--inner-card);
+            border-radius: 15px;
+            height: 90px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+            cursor: pointer;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-3px);
+            background-color: var(--accent-color);
+            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4);
+        }
+
+        /* Form Style (Halaman 2) */
+        .form-container {
+            background-color: var(--inner-card);
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 15px;
+            border: 1px solid #374151;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+            color: #9ca3af;
+        }
+
+        .form-group input {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--input-border);
+            border-radius: 8px;
+            color: #fdfdfd;
+            padding: 10px 12px;
+            outline: none;
+            font-size: 1rem;
+            box-sizing: border-box;
+            transition: border-color 0.2s;
+        }
+
+        .form-group input:focus {
+            border-color: var(--accent-color);
+        }
+
+        /* Tombol Utama */
+        .btn-confirm {
+            background-color: var(--accent-color);
+            color: #000000;
+            border: none;
+            padding: 12px;
+            border-radius: 10px;
+            cursor: pointer;
+            display: block;
+            width: 100%;
+            font-weight: bold;
+            font-size: 1rem;
+            margin-top: 20px;
+            transition: opacity 0.2s;
+        }
+
+        .btn-confirm:hover {
+            opacity: 0.9;
+        }
+
+        .btn-back {
+            background: none;
+            border: none;
+            color: #9ca3af;
+            cursor: pointer;
+            font-size: 0.9rem;
+            display: block;
+            margin: 15px auto 0;
+            text-decoration: underline;
+        }
+
+        /* Halaman Sukses Sosial Media */
+        .success-text {
+            text-align: center;
+            color: #9ca3af;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .btn-social {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            padding: 12px;
+            margin: 12px 0;
+            font-size: 15px;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+            border-radius: 8px;
+            box-sizing: border-box;
+            transition: transform 0.2s;
+        }
+
+        .btn-social:hover {
+            transform: scale(1.02);
+        }
+
+        .btn-wa { background-color: #25D366; }
+        .btn-ig { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+
+        .hidden { display: none !important; }
+    </style>
+</head>
+<body>
+
+    <div id="page1" class="container">
+        <div class="header">
+            <img src="logosmk.png" alt="Logo SMKN 1 Garut" class="logo">
+            <h2>Ekstrakurikuler</h2>
+            <h1>SMKN 1 Garut</h1>
+        </div>
+
+        <div class="grid-menu">
+            <button class="menu-item" onclick="showForm('Futsal')">Futsal</button>
+            <button class="menu-item" onclick="showForm('Basket')">Basket</button>
+            <button class="menu-item" onclick="showForm('Volly')">Volly</button>
+            <button class="menu-item" onclick="showForm('Atletik')">Atletik</button>
+            <button class="menu-item" onclick="showForm('Teater')">Teater</button>
+            <button class="menu-item" onclick="showForm('Seni Tari')">Seni Tari</button>
+            <button class="menu-item" onclick="showForm('Paskibra')">Paskibra</button>
+            <button class="menu-item" onclick="showForm('PMR')">PMR</button>
+        </div>
+    </div>
+
+    <div id="page2" class="container hidden">
+        <div class="header">
+            <h2>Pendaftaran Ekskul</h2>
+            <h1 id="selectedEkskul">Futsal</h1>
+        </div>
+
+        <div class="form-container">
+            <div class="form-group">
+                <label>Nama Lengkap</label>
+                <input type="text" placeholder="Masukkan nama Anda...">
+            </div>
+            <div class="form-group">
+                <label>Kelas</label>
+                <input type="text" placeholder="Contoh: X PPLG 1...">
+            </div>
+            <div class="form-group">
+                <label>No. WhatsApp</label>
+                <input type="tel" placeholder="Contoh: 08123456789...">
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" placeholder="Contoh: nama@gmail.com...">
+            </div>
+            <button class="btn-confirm" onclick="submitForm()">Confirm</button>
+            <button class="btn-back" onclick="goToHome()">Kembali</button>
+        </div>  
+    </div>
+
+    <div id="page3" class="container hidden">
+        <div class="header">
+            <h1>Konfirmasi Berhasil!</h1>
+        </div>
+        <p class="success-text">Data pendaftaran Anda telah disimpan. Silakan pilih platform di bawah ini untuk bergabung dengan komunitas resmi kami:</p>
+        
+        <a href="https://whatsapp.com/channel/0029Vb7IU1CFSAt2viOwo010" target="_blank" class="btn-social btn-wa">
+            Masuk Saluran WhatsApp
+        </a>
+        
+        <a href="https://www.instagram.com/utd_adz?igsh=MWE5MmhmY2FkcXlkZg==" target="_blank" class="btn-social btn-ig">
+            Kunjungi Instagram
+        </a>
+
+        <button class="btn-confirm" style="background-color: var(--inner-card);" onclick="goToHome()">Selesai & Kembali</button>
+    </div>
+
+    <script>
+        function showForm(name) {
+            document.getElementById('page1').classList.add('hidden');
+            document.getElementById('page2').classList.remove('hidden');
+            document.getElementById('page3').classList.add('hidden');
+            document.getElementById('selectedEkskul').innerText = name;
+        }
+
+        function submitForm() {
+            alert('Pendaftaran Berhasil!');
+            document.getElementById('page2').classList.add('hidden');
+            document.getElementById('page3').classList.remove('hidden');
+        }
+
+        function goToHome() {
+            // Mengosongkan form saat kembali ke awal halaman
+            const inputs = document.querySelectorAll('.form-group input');
+            inputs.forEach(input => input.value = '');
+            
+            document.getElementById('page2').classList.add('hidden');
+            document.getElementById('page3').classList.add('hidden');
+            document.getElementById('page1').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
